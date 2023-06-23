@@ -1,11 +1,7 @@
-server_address = minetest.get_server_info().address
-if server_address == "ctf.rubenwardy.com" then
+if minetest.get_server_info().address == "ctf.rubenwardy.com" then
     storage = core.get_mod_storage()
     minetest.register_chatcommand("registerwelcome", {
         params = "<player_name>",
-        privs = {
-            interact = true,
-        },
         func = function(message)
             players = message:sub(1,message:find(" "))
             playerlist = players:split(",")
@@ -32,9 +28,6 @@ if server_address == "ctf.rubenwardy.com" then
 
     minetest.register_chatcommand("removewelcome", {
         params = "<player_name>",
-        privs = {
-            interact = true,
-        },
         func = function(message)
             players = message:sub(1,message:find(" "))
             playerlist = players:split(",")
@@ -51,9 +44,6 @@ if server_address == "ctf.rubenwardy.com" then
 
     minetest.register_chatcommand("welcomemessage", {
         params = "<player> <message>",
-        privs = {
-            interact = true,
-        },
         func = function(message)
             if not message:find(" ") then
                 print(minetest.colorize("#FF5000", "Please format as .welcomemessage <player(s)> <message>"))
@@ -68,7 +58,6 @@ if server_address == "ctf.rubenwardy.com" then
             end            
         end,
     })
-
 
     minetest.register_chatcommand("welcome", {
         params = "<true/false>",
@@ -85,9 +74,6 @@ if server_address == "ctf.rubenwardy.com" then
     })
 
     minetest.register_chatcommand("resetwelcome", {
-        privs = {
-            interact = true,
-        },
         func = function(message)
             temp_data = (storage:get_string("names"))
             data_list = temp_data:split(",")
@@ -99,18 +85,15 @@ if server_address == "ctf.rubenwardy.com" then
     })
 
     minetest.register_chatcommand("listwelcome", {
-
         func = function(message)
             print(minetest.colorize("#FF5000", "Welcome names: " .. storage:get_string("names")))
         end,
     })
 
-
     core.register_on_receiving_chat_message(function(message)
         privs = {
             interact = true,
         }
-
         if string.find(message, "***") and string.find(message, " joined the game.") and not (storage:get_string("send") == "false") then
             local name = minetest.localplayer:get_name()
             start = (string.find(message, "*** "))
