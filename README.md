@@ -10,4 +10,4 @@ Remove player(s)* from your welcome list with ".removewelcome <player>".
 Reset players you send welcome to with ".resetwelcome". NOTE: This removes all players from the list, use with caution.
 Turn welcome message on (globaly) with ".welcome <true>". Turn welcome message off (globaly) with ".welcome <false>".
 
-* To input more than one player, separate them by commas without spaces in between, Ex. "Brain_Juice,Peace12345".
+* To input more than one player, separate them by commas without spaces in between, Ex. "Brain_Juice,Peace12345,etc".
