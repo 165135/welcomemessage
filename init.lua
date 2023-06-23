@@ -9,8 +9,8 @@ if minetest.get_server_info().address == "ctf.rubenwardy.com" then
                 temp_data = (storage:get_string("names"))
                 data_list = temp_data:split(",")
                 local alreadyin = false
-                for i = 1, #data_list do
-                    if (data_list[i] == playerlist[i]) then
+                for n = 1, #data_list do
+                    if (data_list[n] == playerlist[i]) then
                         alreadyin = true
                     end
                 end
