@@ -52,7 +52,7 @@ if minetest.get_server_info().address == "ctf.rubenwardy.com" then
                 msg = message:sub(message:find(" "),-1)
                 playerlist = players:split(",")
                 for i = 1, #playerlist do
-                   storage:set_string(playerlist[i],message:sub(message:find(" ")+1,-1))
+                    storage:set_string(playerlist[i],message:sub(message:find(" ")+1,-1))
                     print(minetest.colorize("#FF5000", "Message to send to " .. playerlist[i] .. " is: " .. storage:get_string(playerlist[i])))
                 end
             end            
